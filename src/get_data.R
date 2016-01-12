@@ -7,6 +7,7 @@
 library("biom")
 library("phyloseq")
 path <- "~/Documents/data/microbiomeData" # path to repository
+setwd(path)
 all_data <- list()
 
 ## ---- from-phyloseq ---
@@ -26,7 +27,7 @@ all_data$esophagus <- get(data(esophagus))
 # restroom (http://qiita.microbio.me/study/description/1335)
 # note: none of these have sample tables, and the others mentioned in the paper
 # are not available from Qiita
-waste_not_names <- paste("data", c("306", "145", "246", "220"), "otu_table.biom", sep = "_")
+waste_not_names <- paste0("data/", c("306_", "145_", "246_", "220_"), "otu_table.biom")
 waste_not_physeq <- sapply(file.path(path, waste_not_names), import_biom)
 names(waste_not_physeq) <- c("smokers", "diet", "bokulich", "restroom")
 all_data <- c(all_data, waste_not_physeq)
