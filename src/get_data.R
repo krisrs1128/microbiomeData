@@ -39,7 +39,7 @@ sapply(biom_paths, function(x) {
 })
 
 # import these bioms into phyloseq objects
-waste_not_physeq <- sapply(list.files(tempdir(), "*.biom", full = T), import_biom)
+waste_not_physeq <- sapply(list.files(tempdir(), ".biom$", full = T), import_biom)
 names(waste_not_physeq) <- c("diet", "restroom", "bokulich", "smokers")
 all_data <- c(all_data, waste_not_physeq)
 
