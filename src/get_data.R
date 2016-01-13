@@ -47,7 +47,8 @@ all_data <- c(all_data, waste_not_physeq)
 pregnancy_path <- "http://statweb.stanford.edu/~susan/papers/Pregnancy/PregnancyClosed15.Rdata"
 tmp <- tempfile()
 download.file(pregnancy_path, tmp)
-all_data$pregnancy <- get(load(tmp))
+load(tmp)
+all_data$pregnancy <- list(PS = PS, PSPost = PSPost, PSPreg = PSPreg, PSbs = PSbs)
 
 ## ---- save-and-upload ----
 dir.create("data")
